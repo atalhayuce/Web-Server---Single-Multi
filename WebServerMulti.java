@@ -65,14 +65,16 @@ public class WebServerMulti implements Runnable {
 			String fileName = tokens.nextToken();
 
 			// Prepend a "." so that file request is within the current directory.
-			fileName = "." + fileName;
+			// fileName = "." + fileName;
+			// My HTML file in under src folder with my java class.
+			fileName = "src/" + fileName;
 
 			// Open the requested file
 			FileInputStream fileInputStream = null;
 			boolean fileExists = true;
 
 			try {
-				fileInputStream = new FileInputStream("src/" + fileName);
+				fileInputStream = new FileInputStream(fileName);
 			} catch (FileNotFoundException e) {
 				fileExists = false;
 			}
